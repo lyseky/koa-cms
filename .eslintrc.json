@@ -1,0 +1,55 @@
+{
+    "env": {
+        "node":true,
+        "commonjs": true
+    },
+    "extends": "eslint:recommended",
+    "parserOptions": {
+        "ecmaVersion": 8,
+        "sourceType": "module"
+    },
+    "globals":{
+        "Promise":true
+    },
+    "rules": {
+        "indent": [
+            2
+        ], //缩进风格
+        "linebreak-style": [
+            2,
+            "windows"
+        ], //换行风格
+        "quotes": [
+            2,
+            "double"
+        ], //引号类型 `` "" ''
+        "semi": [
+            2,
+            "always"
+        ], //语句强制分号结尾
+        "no-extra-semi": 2, //禁止多余的冒号
+        "vars-on-top": 2, //var必须放在作用域顶部
+        "no-console": 2, //禁止使用console
+        "no-invalid-regexp": 2, //禁止无效的正则表达式
+        "no-redeclare": 2, //禁止重复声明变量
+        "default-case": 2, //switch语句最后必须有default
+        "arrow-spacing": 0, //箭头函数用小括号括起来
+        "arrow-parens": 0, //=>的前/后括号
+        "no-alert": 2, //禁止使用alert confirm prompt
+        "no-const-assign": 2, //禁止修改const声明的变量
+        "no-constant-condition": 2, //禁止在条件中使用常量表达式 if(true) if(1)
+        "no-debugger": 2, //禁止使用debugger
+        "no-dupe-keys": 2, //在创建对象字面量时不允许键重复 {a:1,a:1}
+        "no-empty": 2, //块语句中的内容不能为空
+        "no-inner-declarations": [
+            2,
+            "functions"
+        ], //禁止在块语句中使用声明（变量或函数）
+        "no-self-compare": 2, //不能比较自身
+        "no-this-before-super": 0, //在调用super()之前不能使用this或super
+        "no-useless-call": 2, //禁止不必要的call和apply
+        "constructor-super": 0, //非派生类不能调用super，派生类必须调用super
+        "strict": 2, //使用严格模式
+        "use-isnan": 2//禁止比较时使用NaN，只能用isNaN()
+    }
+}

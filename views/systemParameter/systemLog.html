@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>文章列表--layui后台管理模板</title>
+	<%include ../header%>
+		<link rel="stylesheet" href="//at.alicdn.com/t/font_tnyc012u2rlwstt9.css" media="all" />
+		<link rel="stylesheet" href="../../css/news.css" media="all" />
+</head>
+
+<body class="childrenBody">
+	<blockquote class="layui-elem-quote news_search">
+		<div class="layui-inline">
+			用户名
+			<div class="layui-input-inline">
+				<select name="userName" class="layui-input layui-unselect userName" style="width:150px;">
+					<option value=""></option>
+					<%userList.forEach(function(item){%>
+						<option value="<%=item.name%>"><%=item.name%></option>
+					<%})%>
+				</select>
+			</div>
+		</div>
+		<div class="layui-inline">
+			起止时间
+			<div class="layui-input-inline">
+				<input type="text" class="layui-input startTime" lay-verify="required|date" onclick="layui.laydate({elem:this,format: 'YYYY-MM-DD hh:mm:ss',istime:true})">
+			</div>
+			-
+			<div class="layui-input-inline">
+				<input type="text" class="layui-input endTime" lay-verify="required|date" onclick="layui.laydate({elem:this,format: 'YYYY-MM-DD hh:mm:ss',istime:true})">
+			</div>
+		</div>
+		<div class="layui-inline">
+			操作内容
+			<div class="layui-input-inline">
+				<input type="text" value="" placeholder="请输入关键字" class="layui-input search_input content">
+			</div>
+		</div>
+		<div class="layui-inline">
+			<a class="layui-btn search_btn">查询</a>
+		</div>
+		</div>
+	</blockquote>
+	<div class="layui-form news_list">
+		<table class="layui-table">
+			<colgroup>
+				<col width="50">
+				<col>
+				<col width="9%">
+				<col width="9%">
+				<col width="9%">
+				<col width="9%">
+				<col width="9%">
+				<col width="15%">
+			</colgroup>
+			<thead>
+				<tr>
+					<th>id</th>
+					<th style="text-align:left;">操作内容</th>
+					<th>操作人</th>
+					<th>IP地址</th>
+					<th>操作时间</th>
+				</tr>
+			</thead>
+			<tbody class="news_content"></tbody>
+		</table>
+	</div>
+	<div id="page"></div>
+	<%include ../footer%>
+		<script type="text/javascript" src="/js/systemLog.js"></script>
+</body>
+
+</html>

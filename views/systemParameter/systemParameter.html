@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>汉堡</title>
+	<%include ../header%>
+	
+		<style type="text/css">
+			.layui-table td,
+			.layui-table th {
+				text-align: center;
+			}
+
+			.layui-table td {
+				padding: 5px;
+			}
+		</style>
+</head>
+
+<body class="childrenBody">
+	<form class="layui-form">
+		<table class="layui-table">
+			<colgroup>
+				<col width="20%">
+				<col width="50%">
+				<col>
+			</colgroup>
+			<thead>
+				<tr>
+					<th>参数说明</th>
+					<th>参数值</th>
+					
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>网站名称</td>
+					<td><input type="text" class="layui-input cmsName" lay-verify="required" placeholder="网站名称" name="name" value="<%=name%>"></td>
+				</tr>
+				<tr>
+					<td>关键词</td>
+					<td><input type="text" class="layui-input version" placeholder="关键词" name="keywords" value="<%=keywords%>"></td>
+				</tr>
+				<tr>
+					<td>描述</td>
+					<td><input type="text" class="layui-input author" placeholder="描述" name="description" value="<%=description%>"></td>
+				</tr>
+				<tr>
+					<td>底部版权信息</td>
+					<td><input type="text" class="layui-input homePage" placeholder="底部版权信息" name="copyright" value="<%=copyright%>"></td>
+				</tr>
+				<tr>
+					<td>备案号</td>
+					<td><input type="text" class="layui-input server" placeholder="备案号" name="record" value="<%=record%>"></td>
+				</tr>
+			</tbody>
+		</table>
+		<div class="layui-form-item" style="text-align: right;">
+			<div class="layui-input-block">
+				<button class="layui-btn" lay-submit="" lay-filter="systemParameter">立即提交</button>
+			</div>
+		</div>
+	</form>
+	<%include ../footer%>
+	<script type="text/javascript" src="/js/systemParameter.js"></script>
+</body>
+
+</html>
