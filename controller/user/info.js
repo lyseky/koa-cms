@@ -6,12 +6,14 @@ methods:get
 */
 exports.page=async ctx=>{
     let user=await Model.User.findById(ctx.session.id,{
-        attributes:{exclude:["password"]}
+        attributes:{exclude:["password"]},
     });
     if(!user){
         ctx.redirect("/admin/login");
         return;
     }
+    let roles=await user.getRoles();
+    user.roles=roles;
     await ctx.render("user/userInfo",user);
 };
 /*
@@ -34,6 +36,6 @@ exports.put=async ctx=>{
         ctx.body={err:err.error.message};
         return;
     }
-    let id=ctx.params.id;
-    Model.User.update({},)
+    // let id=ctx.params.id;
+    // Model.User.update({},)
 };
