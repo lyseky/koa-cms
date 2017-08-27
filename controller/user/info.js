@@ -21,21 +21,24 @@ router: /admin/user/info/:id
 methods:put
 */
 const schema= Joi.object().keys({
-    id: Joi.array().items(Joi.string().regex(/^\d*$/)),
-    name: Joi.string().alphanum().min(3).max(30).required(),
     email: Joi.string().email().required(),
     phone: Joi.string().regex(/^\d*$/).min(11).max(11),
-    status: Joi.string(),
     gender: Joi.string().valid("0","1","2"),
-    
-    describe: Joi.any(),
+    birthDate:Joi.string().isoDate()
 });
 exports.put=async ctx=>{
-    let err=Joi.validate(ctx.params.id,schema);
+    let err=Joi.validate(ctx.request.body,schema);
     if(err.error){
         ctx.body={err:err.error.message};
         return;
     }
-    // let id=ctx.params.id;
-    // Model.User.update({},)
+    let user=await Model.User.update(ctx.request.body,{
+        where:{id:ctx.session.id}
+    });
+    if(user){
+        ctx.body={message:"更改成功"};
+    }else{
+        ctx.body={err:"设置失败，请稍后重试"};
+    }
+    
 };

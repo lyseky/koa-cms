@@ -7,6 +7,6 @@ router.get("/", Controller.page)
     .get("/add", Controller.add)
     .post("/add", Controller.createUser)
     .get("/info",Controller.info)
-    .put("/info/:id",Controller.put);
+    .put("/info",Controller.put);
 
 module.exports = router;

@@ -1,6 +1,6 @@
 const Orm = require("sequelize");
 const Sequelize = require("./sequelize");
-let Nav = Sequelize.define('nav',
+let Nav = Sequelize.define("nav",
     {
         id: {
             type: Orm.DataTypes.INTEGER,
