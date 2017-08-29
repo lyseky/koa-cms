@@ -13,7 +13,7 @@ exports.page=async ctx=>{
         return;
     }
     let roles=await user.getRoles();
-    user.roles=roles;
+    user.roles = roles;
     await ctx.render("user/userInfo",user);
 };
 /*

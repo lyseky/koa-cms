@@ -41,7 +41,43 @@ exports.list = async (ctx) => {
         };
     }));
 };
+/*
+router: /admin/user/changePW
+methods:get
+*/
+exports.changePWInfo= async (ctx)=>{
+    await ctx.render("user/changePW",{name:ctx.session.name});
+}
+/*
+router: /admin/user/changePW
+methods:put
+body: password oldPw
+*/
+const changePWschema= Joi.object().keys({
+    oldPw: Joi.string().regex(/^[a-zA-Z0-9]{3,30}$/).required(),
+    password: Joi.string().regex(/^[a-zA-Z0-9]{3,30}$/).required(),
+});
+exports.changePW= async (ctx)=>{
+    let err=Joi.validate(ctx.request.body,changePWschema);
+    if(err.error){
+        ctx.body={err:err.error.message};
+        return;
+    }
+    let user=await Model.User.update({
+        password:ctx.request.body.password
+    },{
+        where:{
+            name:ctx.session.name,
+            password:ctx.request.body.oldPw
+        }
+    });
+    if(user){
+        ctx.body={message:"更新成功"};
+    }else{
+        ctx.body={err:"旧密码错误，请重新尝试"};
+    }
+}
 exports.add = Add.page;
 exports.createUser = Add.createUser;
 exports.info = Info.page;
-exports.put = Info.put;
+exports.putInfo = Info.put;
