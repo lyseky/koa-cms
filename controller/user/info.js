@@ -33,9 +33,10 @@ exports.put=async ctx=>{
         return;
     }
     let user=await Model.User.update(ctx.request.body,{
+        limit:1,
         where:{id:ctx.session.id}
     });
-    if(user){
+    if(user[0]>0){
         ctx.body={message:"更改成功"};
     }else{
         ctx.body={err:"设置失败，请稍后重试"};

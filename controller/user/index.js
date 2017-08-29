@@ -66,12 +66,13 @@ exports.changePW= async (ctx)=>{
     let user=await Model.User.update({
         password:ctx.request.body.password
     },{
+        limit:1,
         where:{
             name:ctx.session.name,
             password:ctx.request.body.oldPw
         }
     });
-    if(user){
+    if(user[0]>0){
         ctx.body={message:"更新成功"};
     }else{
         ctx.body={err:"旧密码错误，请重新尝试"};
