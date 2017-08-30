@@ -52,7 +52,7 @@ layui.config({
 						+ '<td align="left">' + currData[i].content + '</td>'
 						+ '<td>' + currData[i].userName + '</td>'
 						+ '<td>' + currData[i].ip + '</td>'
-						+ '<td>' + currData[i].createdAt + '</td>'
+						+ '<td>' +  new Date(currData[i].createdAt).toLocaleString() + '</td>'
 						+ '</tr>';
 				}
 			} else {
