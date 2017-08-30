@@ -1,6 +1,7 @@
 const GetIp =require("../../config/getIp");
 // const Model =require("../../model");
 const Os =require("os");
+const path =require("path");
 exports.page = async ctx => {
     //域名和端口获取
     var host = ctx.host.split(":"),
@@ -18,7 +19,7 @@ exports.page = async ctx => {
         ip: GetIp.getIPAdress(),
         url: url,
         port: port,
-        catalog:process.cwd(),
+        catalog:path.join(__dirname,"../../"),
         version:process.version,
         newTime:new Date().toLocaleString(),
         platform:Os.type(),

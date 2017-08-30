@@ -8,14 +8,17 @@ layui.config({
 
 	var systemParameter;
 	form.on("submit(systemParameter)", function (data) {
+        var index = layer.msg('提交中，请稍候', { icon: 16, time: false, shade: 0.8 });
 		$.ajax({
 			type: "put",
 			url: "/admin/system",
 			data: data.field,
 			success: function (response) {
+				layer.close(index);
 				layer.msg("success");
 			},
-			error: function () { 
+			error: function () {
+                layer.close(index);
 				layer.msg("error");
 			}
 		});

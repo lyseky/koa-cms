@@ -1,6 +1,6 @@
 {
-  "name": "koa",
-  "version": "0.1.0",
+  "name": "koa-cms",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "start": "node output/app",
@@ -14,7 +14,6 @@
     "dottie": "^2.0.0",
     "ejs": "^2.5.6",
     "escape-html": "^1.0.3",
-    "eslint": "^4.4.1",
     "generic-pool": "^3.1.7",
     "is-generator-function": "^1.0.6",
     "joi": "^10.6.0",
@@ -42,6 +41,7 @@
     "toposort-class": "^1.0.1"
   },
   "devDependencies": {
-    "nodemon": "^1.8.1"
+    "nodemon": "^1.8.1",
+    "eslint": "^4.4.1"
   }
 }

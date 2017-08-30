@@ -15,7 +15,7 @@ methods:get
 query: userName
 */
 const schema= Joi.object().keys({
-    userName: Joi.any(),
+    userName: Joi.string().alphanum().min(3).max(30).allow(""),
 });
 exports.list = async (ctx) => {
     let err=Joi.validate(ctx.query,schema);

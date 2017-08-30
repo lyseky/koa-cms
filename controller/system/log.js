@@ -14,10 +14,10 @@ methods:get
 query: userName,startTime,endTime,content
 */
 const schema= Joi.object().keys({
-    userName: Joi.string(),
-    startTime: Joi.string(),
-    endTime: Joi.string(),
-    content: Joi.string(),
+    userName: Joi.string().alphanum().min(3).max(30).allow(""),
+    startTime: Joi.string().allow(""),
+    endTime: Joi.string().allow(""),
+    content: Joi.string().allow(""),
 });
 exports.list=async ctx => {
     let err=Joi.validate(ctx.request.query,schema);
