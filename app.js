@@ -6,6 +6,7 @@ const Bodyparser = require("koa-bodyparser");
 const Logger = require("koa-logger");
 const Session = require("koa-session2");
 const App = new Koa();
+const colors = require("colors");// eslint-disable-line no-unused-vars
 // error handler
 Onerror(App);
 // middlewares
@@ -28,11 +29,34 @@ App.use(async (ctx, next) => {
     await next();
     const end = new Date();
     const ms = end - start;
-    console.log(`${ctx.method} ${ctx.url} - ${ms}ms`);
+    console.log(`${ctx.method} ${ctx.url} - ${ms}ms`);// eslint-disable-line no-console
 });
 // routes
 //admin
 const Router = require("./routes");
 App.use(Router);
 App.listen(80, "0.0.0.0");
+console.log("project is running,and listen port:80".green);// eslint-disable-line no-console
+console.log([// eslint-disable-line no-console
+    "                   _ooOoo_",
+    "                  o8888888o",
+    "                  88\" . \"88",
+    "                  (| -_- |)",
+    "                  O\\  =  /O",
+    "               ____/`---'\\____",
+    "             .'  \\\\|     |//  `.",
+    "            /  \\\\|||  :  |||//  \\",
+    "           /  _||||| -:- |||||-  \\",
+    "           |   | \\\\\\  -  /// |   |",
+    "           | \\_|  ''\\---/''  |   |",
+    "           \\  .-\\__  `-`  ___/-. /",
+    "         ___`. .'  /--.--\\  `. . __",
+    "      .\"\" '<  `.___\\_<|>_/___.'  >'\"\".",
+    "     | | :  `- \\`.;`\\ _ /`;.`/ - ` : | |",
+    "     \\  \\ `-.   \\_ __\\ /__ _/   .-` /  /",
+    "======`-.____`-.___\\_____/___.-`____.-'======",
+    "                   `=---='",
+    "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^",
+    "         佛祖保佑       永无BUG"
+].join("\n").green);
 module.exports = App;

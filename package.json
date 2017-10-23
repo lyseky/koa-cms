@@ -3,12 +3,13 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "start": "node output/app",
+    "start": "node app",
     "resetDB": "node scripts/resetDatabases",
     "prd": "pm2 start app.js --watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
+    "colors": "^1.1.2",
     "content-disposition": "^0.5.2",
     "debug": "^2.6.3",
     "dottie": "^2.0.0",
