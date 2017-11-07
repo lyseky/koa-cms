@@ -1,12 +1,12 @@
-const Model = require("../model");    
-(async () =>{
+const Model = require("../model");
+(async () => {
     await Model.Sequelize.sync();
     await Model.System.create({
-        name:"",        
-        keywords:"",        
-        description:"",        
-        copyright:"",        
-        record:"",        
+        name: "",
+        keywords: "",
+        description: "",
+        copyright: "",
+        record: "",
     });
     await Promise.all([
         Model.User.create({
